@@ -3,7 +3,9 @@ void motion() {
   video.loadPixels();
   prev.loadPixels();
   motion.loadPixels();
-  //image(video, 0, 0);
+  
+  motionPrev = motion;
+  motionPrev.loadPixels();
 
   //threshold = map(mouseX, 0, width, 0, 100);
   threshold = 30;

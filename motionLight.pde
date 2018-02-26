@@ -9,7 +9,7 @@ import gab.opencv.*;
 Capture video;
 OpenCV opencv;
 
-PImage prev, motion;
+PImage prev, motion, motionPrev;
 float threshold = 25;
 float motionX = 0, motionY = 0;  
 float lerpX = 0, lerpY = 0;
@@ -23,6 +23,7 @@ void setup() {
 
   prev = createImage(640, 480, RGB);
   motion = createImage(640, 480, RGB);
+  motionPrev = createImage(640, 480, RGB);
 }
 
 void mousePressed() {
