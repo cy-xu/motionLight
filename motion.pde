@@ -3,9 +3,6 @@ void motion() {
   video.loadPixels();
   prev.loadPixels();
   motion.loadPixels();
-  
-  motionPrev = motion;
-  motionPrev.loadPixels();
 
   //threshold = map(mouseX, 0, width, 0, 100);
   threshold = 30;
@@ -30,36 +27,35 @@ void motion() {
       float g2 = green(prevColor);
       float b2 = blue(prevColor);
 
-      float d = distSq(r1, g1, b1, r2, g2, b2); 
+      float d = distSq(r1, g1, b1, r2, g2, b2);
 
-      if (d > threshold*threshold) {
-        //stroke(255);
-        //strokeWeight(1);
-        //point(x, y);
-        avgX += x;
-        avgY += y;
-        count++;
-        motion.pixels[loc] = color(255);
-      } else {
-        motion.pixels[loc] = color(0);
-      }
+      //motion.pixels[loc] = color(map(d, 0, 10000, 0, 255));
+
+            if (d > threshold*threshold) {
+              //stroke(255);
+              //strokeWeight(1);
+              //point(x, y);
+              motion.pixels[loc] = color(255);
+            } else {
+              motion.pixels[loc] = color(0);
+            }
     }
   }
   motion.updatePixels();
-  image(motion, 0, 0);
+  //image(motion, 0, 0);
 
   // We only consider the color found if its color distance is less than 10. 
   // This threshold of 10 is arbitrary and you can adjust this number depending on how accurate you require the tracking to be.
-  if (count > 200) { 
-    motionX = avgX / count;
-    motionY = avgY / count;
-    // Draw a circle at the tracked pixel
-  }
+  //if (count > 200) { 
+  //  motionX = avgX / count;
+  //  motionY = avgY / count;
+  //  // Draw a circle at the tracked pixel
+  //}
 
-  lerpX = lerp(lerpX, motionX, 0.1); 
-  lerpY = lerp(lerpY, motionY, 0.1); 
+  //lerpX = lerp(lerpX, motionX, 0.1); 
+  //lerpY = lerp(lerpY, motionY, 0.1); 
 
-// draw the pink ball
+  // draw the pink ball
   //fill(255, 0, 255);
   //strokeWeight(2.0);
   //stroke(0);
