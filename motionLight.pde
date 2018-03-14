@@ -12,7 +12,9 @@ Amplitude rms;
 int videoScale = 20; // Size of each cell in the grid
 int audioScale = 1;
 int cols, rows, wwidth = 640, hheight = 480; // Number of columns and rows in the system
-int frameNom = 1;
+int frameNom = 10;
+int playMode = 1;
+int tempSecond, bmp = 117, bmpMillis;
 float minWeight = videoScale * 0.05;
 float maxWeight = videoScale * 0.75;
 float threshold = videoScale * 0.5;
@@ -23,7 +25,7 @@ float lerpX = 0, lerpY = 0;
 
 void setup() {
   size(640, 480, P3D);
-  //size(640, 480);
+  //size(full);
   //cam = new PeasyCam(this, 600);
 
   // show which cameras available
@@ -35,7 +37,7 @@ void setup() {
   rows = int(height / videoScale);
 
   // Construct the Capture object  
-  video = new Capture(this, cols, rows);
+  video = new Capture(this, 640, 480);
   video.start();
 
   prev = createImage(640, 480, RGB);
@@ -47,6 +49,7 @@ void setup() {
   // create a new Amplitude analyzer
   rms = new Amplitude(this);
   rms.input(input);
+  tempSecond = millis();
 }
 
 void mousePressed() {
@@ -121,4 +124,19 @@ void draw() {
   //  camera(camX(), 0.0, camZ(), // eyeX, eyeY, eyeZ
   //    0.0, 0.0, 0.0, // centerX, centerY, centerZ
   //    0.0, 1.0, 0.0); // upX, upY, upZ
+
+  if (keyPressed) {
+    if (key == '1') {
+      playMode = 1; // change pixel size randomly based on claps
+      bmp = 117; // it never rains in southern california
+    }
+    if (key == '2') {
+      playMode = 2; // change pixel size based on volume
+      bmp = 137; // cherry bomb
+    }
+        if (key == '3') {
+      playMode = 3; // change pixel size based on volume
+      bmp = 137; // cherry bomb
+    }
+  }
 }

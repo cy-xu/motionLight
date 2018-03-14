@@ -1,8 +1,7 @@
 void pixelThisFrame(PImage frame) {
   for (int i = 0; i < cols; i++) {    
-    // Begin loop for rows    
     for (int j = 0; j < rows; j++) {      
-      // Where are you, pixel-wise?      
+
       int x = i * videoScale;      
       int y = j * videoScale;    
       //int x = int(i * cols);
@@ -10,14 +9,12 @@ void pixelThisFrame(PImage frame) {
 
       // Reverse the column to mirro the image.
       //int loc = (frame.width - 10 - x) + j * frame.width; 
-      int loc = (frame.width - 1 - i) + j * frame.width; 
-      //////// fix this, out of bound
+      int loc = (frame.width - 1 - x) + y * frame.width; 
 
       color c = frame.pixels[loc];
 
-      // map weight to a smaller range
+      // map weight to a smaller range   // reverse mapping
       //float currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
-      // reverse mapping
       float currWeight = map(brightness(c), 0, 255, maxWeight, minWeight);
 
       // no.1 paint with points / ellipse
@@ -28,7 +25,7 @@ void pixelThisFrame(PImage frame) {
         point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       } else {
         stroke(c);
-        strokeWeight(3);  
+        strokeWeight(minWeight);  
         point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       }
       //ellipse(x + videoScale/2, y + videoScale/2, currWeight, currWeight);
