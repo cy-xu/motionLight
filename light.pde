@@ -1,6 +1,5 @@
 ////PImage img = adaptive;
 
-
 //int px, py, pz, n = 10, zSpace = 50;
 //color pix;
 
