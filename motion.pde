@@ -1,39 +1,30 @@
 // motion compare current and previous frame to get b/w image
+PImage motion = createImage(640, 480, RGB);
+int motionThreshold = 30;
 
-void motion() {
+PImage motion() {
+
   video.loadPixels();
   prev.loadPixels();
   motion.loadPixels();
 
-  //threshold = map(mouseX, 0, width, 0, 100);
-  threshold = 30;
-
-  int count = 0;
-
-  float avgX = 0;
-  float avgY = 0;
-
   //loadPixels();
+  // Begin loop to walk through every pixel
   // Begin loop to walk through every pixel
   for (int x = 0; x < video.width; x++ ) {
     for (int y = 0; y < video.height; y++ ) {
+      int loc = x + y * video.width;
+      // What is current color
+      color currentColor = video.pixels[loc];
+      float r1 = red(currentColor);
+      float g1 = green(currentColor);
+      float b1 = blue(currentColor);
+      color prevColor = prev.pixels[loc];
+      float r2 = red(prevColor);
+      float g2 = green(prevColor);
+      float b2 = blue(prevColor);
 
-      // Reverse the column to mirro the image.
-      int loc = (video.width - x - 1) + y * video.width;       
-      //int loc = x + y * video.width;
-
-      // calculate motion by comparing previous and current frame
-      color c = video.pixels[loc];
-      float r1 = red(c);
-      float g1 = green(c);
-      float b1 = blue(c);
-      color pc = prev.pixels[loc];
-      float r2 = red(pc);
-      float g2 = green(pc);
-      float b2 = blue(pc);
-      float d = distSq(r1, g1, b1, r2, g2, b2);
-
-      //motion.pixels[loc] = color(map(d, 0, 10000, 0, 255));
+      float d = distSq(r1, g1, b1, r2, g2, b2); 
 
       if (d > threshold*threshold) {
         //stroke(255);
@@ -46,7 +37,7 @@ void motion() {
     }
   }
   motion.updatePixels();
-  //return motion;
+  return motion;
 }
 
 //image(motion, 0, 0);

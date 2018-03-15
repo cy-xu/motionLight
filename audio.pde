@@ -16,8 +16,8 @@ void audioAnalysis() {
       }
     } 
     if (playMode == 2) {
-      videoScale = int(random(20, 60));
-      //videoScale = audioScale;
+      //videoScale = int(random(20, 60));
+      videoScale = audioScale;
     }
     tempSecond = millis();
   }
