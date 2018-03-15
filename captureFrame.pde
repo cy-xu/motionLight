@@ -1,4 +1,5 @@
 void pixelThisFrame(PImage frame) {
+  stroke(random(255.0), random(255.0), random(255.0));
   for (int i = 0; i < cols; i++) {    
     for (int j = 0; j < rows; j++) {      
 
@@ -14,19 +15,19 @@ void pixelThisFrame(PImage frame) {
       color c = frame.pixels[loc];
 
       // map weight to a smaller range   // reverse mapping
-      //float currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
-      float currWeight = map(brightness(c), 0, 255, maxWeight, minWeight);
+      float currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
+      //float currWeight = map(brightness(c), 0, 255, maxWeight, minWeight);
 
       // no.1 paint with points / ellipse
       // use threshold to convert binary lights
       if (currWeight > threshold) {
-        stroke(255);
+
         strokeWeight(currWeight);
         point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       } else {
-        stroke(c);
-        strokeWeight(minWeight);  
-        point(x + 0.5 * videoScale, y + 0.5 * videoScale);
+        //stroke(c);
+        //strokeWeight(minWeight);  
+        //point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       }
       //ellipse(x + videoScale/2, y + videoScale/2, currWeight, currWeight);
 
@@ -55,11 +56,11 @@ void pixelThisFrame(PImage frame) {
 void lightBulb() {
   for (int i = 0; i < manyFrames.length; i++) {
     //println(manyFrames[i]);
-    if (manyFrames[i] != null) {
+    if ( i % 10 == 0 && manyFrames[i] != null) {
       pushMatrix();
-      float resizeScale = map(i, 0, frameNom, 1, 0.5);
+      float resizeScale = map(i, 0, frameNom, 1, 0.1);
+      translate(width / 2.0 * (1 - resizeScale), height / 2.0 * (1 - resizeScale));
       scale(resizeScale);
-      translate(width / 2.0 * (1 - resizeScale), height / 2.0 * (1 - resizeScale), i * -30);
       pixelThisFrame(manyFrames[i]);
       popMatrix();
     }

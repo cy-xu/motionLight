@@ -9,11 +9,11 @@ AudioIn input;
 Amplitude rms;
 //OpenCV opencv;
 
-int frameNom = 1;
+int frameNom = 50;
 int videoScale = 20; // Size of each cell in the grid
 int audioScale = 1;
 int cols, rows, wwidth = 640, hheight = 480; // Number of columns and rows in the system
-int playMode = 1;
+int playMode = 0;
 int tempSecond, bmp = 117, bmpMillis;
 float minWeight = videoScale * 0.05;
 float maxWeight = videoScale * 0.75;
@@ -58,7 +58,7 @@ void captureEvent(Capture video) {
   prev.updatePixels();
   video.read();
   //timeTravel(video);
-  //timeTravel(motion());
+  timeTravel(motion());
 }
 
 void draw() {
@@ -69,10 +69,10 @@ void draw() {
   audioAnalysis();
 
   //motion();
-
-  if (manyFrames[frameNom-1] != null) {
-    lightBulb();
-    //image(motion(), 0, 0);
+  if (playMode != 0) {
+    if (manyFrames[frameNom-1] != null) {
+      lightBulb();
+    }
   }
 
   //tint(255,50);
@@ -82,39 +82,29 @@ void draw() {
   //}
 
   if (playMode == 0) {
+    scale(0.5);
+    
+    pushMatrix();
+
     // no.1 image from motion
-    image(video, 0, 0, wwidth / 2.0, hheight / 2.0);
+    image(video, 0, 0);
 
-    //no.2 original video
-    translate(wwidth / 2.0, 0);
-    image(motion(), 0, 0, wwidth / 2.0, hheight / 2.0);
+    //no.2 motion
+    translate(wwidth, 0);
+    image(motion(), 0, 0);
 
-    // no.3 the result i want
-    translate(video.width, 0, hheight / 2.0);
+    popMatrix();
+    pushMatrix();
+
+    // no.3 light bulb from motion
+    translate(0, hheight);
     lightBulb();
 
     // no.4 single frame light bulb
-    //translate(0.0, video.height, 4);
-
-    //for (int i = 0; i < cols; i++) {
-    //  for (int j = 0; j < rows; i++) {
-
-    //    // Reverse the column to mirro the image.
-    //    int loc = (cols - i - 1) + j * rows;   
-
-    //    //color c = video.get(i, j);
-    //    color c = video.pixels[loc];
-    //    float currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
-
-    //    int x = i * videoScale;
-    //    int y = j * videoScale;
-
-    //    strokeWeight(currWeight);
-    //    stroke(#523939); 
-    //    //stroke(pix);
-    //    point(x + videoScale/2, y + videoScale/2);
-    //  }
-    //}
+    translate(wwidth, 0);
+    showTimeTravel();
+    
+    popMatrix();
   }
 
   //lights();
@@ -133,8 +123,7 @@ void draw() {
       bmp = 137; // cherry bomb
     }
     if (key == '3') {
-      playMode = 3; // change pixel size based on volume
-      bmp = 137; // cherry bomb
+      showTimeTravel();
     }
     if (key == 'd' || key == 'D') {
       playMode = 0; // change pixel size based on volume

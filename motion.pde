@@ -1,6 +1,6 @@
 // motion compare current and previous frame to get b/w image
 PImage motion = createImage(640, 480, RGB);
-int motionThreshold = 30;
+int motionThreshold = 33;
 
 PImage motion() {
 
@@ -26,7 +26,7 @@ PImage motion() {
 
       float d = distSq(r1, g1, b1, r2, g2, b2); 
 
-      if (d > threshold*threshold) {
+      if (d > motionThreshold * motionThreshold) {
         //stroke(255);
         //strokeWeight(1);
         //point(x, y);

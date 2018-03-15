@@ -5,7 +5,7 @@ void audioAnalysis() {
   input.amp(1.0);
   // rms.analyze() return a value between 0 and 1. To adjust
   // the scaling and mapping of an ellipse we scale from 0 to 0.5
-  audioScale = int(map(rms.analyze(), 0, 0.5, 10, 100));
+  audioScale = int(map(rms.analyze(), 0, 0.5, 30, 10));
 
   bmpMillis = int(60 * 1000 / bmp);
 
