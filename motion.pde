@@ -39,27 +39,3 @@ PImage motion() {
   motion.updatePixels();
   return motion;
 }
-
-//image(motion, 0, 0);
-
-// We only consider the color found if its color distance is less than 10. 
-// This threshold of 10 is arbitrary and you can adjust this number depending on how accurate you require the tracking to be.
-//if (count > 200) { 
-//  motionX = avgX / count;
-//  motionY = avgY / count;
-//  // Draw a circle at the tracked pixel
-//}
-
-//lerpX = lerp(lerpX, motionX, 0.1); 
-//lerpY = lerp(lerpY, motionY, 0.1); 
-
-// draw the pink ball
-//fill(255, 0, 255);
-//strokeWeight(2.0);
-//stroke(0);
-//ellipse(lerpX, lerpY, 36, 36);
-
-//image(video, 0, 0, 100, 100);
-//image(prev, 100, 0, 100, 100);
-
-//println(mouseX, threshold);

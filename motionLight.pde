@@ -14,7 +14,7 @@ int videoScale = 20; // Size of each cell in the grid
 int audioScale = 1;
 int cols, rows, wwidth = 640, hheight = 480; // Number of columns and rows in the system
 int playMode = 0;
-int tempSecond, bmp = 117, bmpMillis;
+int tempSecond, bmp = 117, bmpMillis, passDownTemp;
 float minWeight = videoScale * 0.05;
 float maxWeight = videoScale * 0.75;
 float threshold = videoScale * 0.5;
@@ -48,6 +48,7 @@ void setup() {
   rms = new Amplitude(this);
   rms.input(input);
   tempSecond = millis();
+  passDownTemp = millis(); 
 }
 
 void mousePressed() {
