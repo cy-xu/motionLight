@@ -14,7 +14,7 @@ int videoScale = 20; // Size of each cell in the grid
 int audioScale = 20;
 int cols, rows, wwidth = 1280, hheight = 720; // Number of columns and rows in the system
 int playMode = 0;
-int tempSecond, bmp = 117, bmpMillis, passDownTemp;
+int tempSecond, bmp = 117, bmpMillis, passDownTemp, passDownTemp2;
 float minWeight = videoScale * 0.05;
 float maxWeight = videoScale * 0.75;
 float threshold = videoScale * 0.6;
@@ -62,7 +62,6 @@ void captureEvent(Capture video) {
   video.read();
   motion();
   timeTravel(motion);
-  //timeTravelPerSecond(motion);
 }
 
 void draw() {
@@ -81,25 +80,27 @@ void draw() {
   pushMatrix();
 
   if (playMode == 1) { // change pixel size based on music beats
-    pushMatrix();
     mode1();
-    popMatrix();
   }
 
   if (playMode == 2) { // single frame single color motion light bulb
-    pushMatrix();
     mode2();
-    popMatrix();
   }
 
   if (playMode == 3) { // single coclr, every other frame, alpha go down
-    pushMatrix();
     mode3();
-    popMatrix();
   }
 
   if (playMode == 4) { // rabow color motion light bulb
     mode4();
+  }
+
+  if (playMode == 5) { // rabow color motion light bulb
+    mode5();
+  }
+
+  if (playMode == 6) { // rabow color motion light bulb
+    mode6();
   }
 
   // debug mode
