@@ -86,11 +86,11 @@ void draw() {
     popMatrix();
   }
 
-  //if (playMode == 2) { // single frame single color motion light bulb
-  //  pushMatrix();
-  //  //mode2();
-  //  popMatrix();
-  //}
+  if (playMode == 2) { // single frame single color motion light bulb
+    pushMatrix();
+    mode2();
+    popMatrix();
+  }
 
   //if (playMode == 3) { // 
   //  pushMatrix();

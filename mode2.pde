@@ -17,7 +17,7 @@ void pixelThisFrameMode2(PImage frame) {
       color c = frame.pixels[loc];
 
       // map weight to a smaller range   // reverse mapping
-      currWeight = map(brightness(c), 0, 255, maxWeight, minWeight);
+      currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
 
       // no.1 paint with points / ellipse
       // use threshold to convert binary lights
