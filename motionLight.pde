@@ -13,7 +13,7 @@ int frameNom = 10;
 int videoScale = 20; // Size of each cell in the grid
 int audioScale = 20;
 int cols, rows, wwidth = 1280, hheight = 720; // Number of columns and rows in the system
-int playMode = 0;
+int playMode = 1;
 int tempSecond, bmp = 117, bmpMillis, passDownTemp, passDownTemp2;
 float minWeight = videoScale * 0.05;
 float maxWeight = videoScale * 0.75;
@@ -143,7 +143,7 @@ void draw() {
     } else if (key == '6') {
       playMode = 6;
     } else {
-      playMode = 0;
+      playMode = 1;
     }
   }
 }

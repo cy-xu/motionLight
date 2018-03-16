@@ -22,7 +22,7 @@ void audioAnalysis() {
   // clap to change play mode
   if (playMode != 1) {
     if (audioScale > 40) {
-      if (playMode == 6) {
+      if (playMode > 6) {
         playMode = 2;
       } else {
         playMode += 1;
