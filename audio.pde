@@ -21,11 +21,11 @@ void audioAnalysis() {
 
   // clap to change play mode
   if (playMode != 1) {
-    if (audioScale > 40) {
+    if (audioScale > 60) {
+      playMode += 1;
       if (playMode > 6) {
         playMode = 2;
       } else {
-        playMode += 1;
       }
     }
   }
