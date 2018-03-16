@@ -61,7 +61,7 @@ void captureEvent(Capture video) {
   prev.updatePixels();
   video.read();
   motion();
-  //timeTravel(motion);
+  timeTravel(motion);
   //timeTravelPerSecond(motion);
 }
 
@@ -92,11 +92,9 @@ void draw() {
     popMatrix();
   }
 
-  if (playMode == 3) { // 
+  if (playMode == 3) { // single coclr, every other frame, alpha go down
     pushMatrix();
-    frameNom = 20;
-    strokeC = color(255);
-    lightBulbArray(manyFrames);
+    mode3();
     popMatrix();
   }
 
