@@ -92,13 +92,13 @@ void draw() {
     popMatrix();
   }
 
-  //if (playMode == 3) { // 
-  //  pushMatrix();
-  //  frameNom = 20;
-  //  strokeC = color(255);
-  //  lightBulbArray(manyFrames);
-  //  popMatrix();
-  //}
+  if (playMode == 3) { // 
+    pushMatrix();
+    frameNom = 20;
+    strokeC = color(255);
+    lightBulbArray(manyFrames);
+    popMatrix();
+  }
 
   //if (playMode == 4) {
   //  // rabow color motion light bulb

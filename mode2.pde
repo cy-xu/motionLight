@@ -3,8 +3,9 @@ void mode2() {
 }
 
 void pixelThisFrameMode2(PImage frame) {
+  
   float currWeight;
-  float localThreshold = 0.6 * videoScale; 
+  float localThreshold = 0.7 * videoScale; 
 
   for (int i = 0; i < cols; i++) {    
     for (int j = 0; j < rows; j++) {
@@ -26,10 +27,8 @@ void pixelThisFrameMode2(PImage frame) {
         strokeWeight(currWeight);
         point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       } else {
-        //ellipseMode(RADIUS);
-        //fill(255, 0, 0, 100);
-        //ellipse(x + 0.5 * videoScale, y + 0.5 * videoScale, currWeight, currWeight);
-        //strokeWeight(minWeight);  
+        //strokeWeight(minWeight);
+        //stroke(200);;
         //point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       }
     }
