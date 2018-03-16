@@ -1,5 +1,5 @@
 // motion compare current and previous frame to get b/w image
-PImage motion = createImage(640, 480, RGB);
+PImage motion = createImage(wwidth, hheight, RGB);
 int motionThreshold = 33;
 
 PImage motion() {

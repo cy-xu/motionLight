@@ -1,31 +1,32 @@
 void pixelThisFrame(PImage frame) {
-  stroke(random(255.0), random(255.0), random(255.0));
+  float currWeight;
+
   for (int i = 0; i < cols; i++) {    
     for (int j = 0; j < rows; j++) {      
 
-      int x = i * videoScale;      
-      int y = j * videoScale;    
-      //int x = int(i * cols);
-      //int y = int(j * rows);
+      int x = i * videoScale;
+      int y = j * videoScale;
 
       // Reverse the column to mirro the image.
-      //int loc = (frame.width - 10 - x) + j * frame.width; 
       int loc = (frame.width - 1 - x) + y * frame.width; 
-
+      
       color c = frame.pixels[loc];
 
       // map weight to a smaller range   // reverse mapping
-      float currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
-      //float currWeight = map(brightness(c), 0, 255, maxWeight, minWeight);
+      if (playMode == 1) {
+        currWeight = map(brightness(c), 0, 255, maxWeight, minWeight);
+        //stroke(255);
+      } else {
+        currWeight = map(brightness(c), 255, 0, maxWeight, minWeight);
+        //stroke(strokeC);
+      }
 
       // no.1 paint with points / ellipse
       // use threshold to convert binary lights
       if (currWeight > threshold) {
-
         strokeWeight(currWeight);
         point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       } else {
-        //stroke(c);
         //strokeWeight(minWeight);  
         //point(x + 0.5 * videoScale, y + 0.5 * videoScale);
       }
@@ -53,15 +54,32 @@ void pixelThisFrame(PImage frame) {
   }
 }
 
-void lightBulb() {
-  for (int i = 0; i < manyFrames.length; i++) {
+// show every five frames
+void lightBulbArray(PImage[] input) {
+  for (int i = 0; i < input.length; i++) {
     //println(manyFrames[i]);
-    if ( i % 10 == 0 && manyFrames[i] != null) {
+    if ( i % 2 == 0 && input[i] != null) {
       pushMatrix();
       float resizeScale = map(i, 0, frameNom, 1, 0.1);
       translate(width / 2.0 * (1 - resizeScale), height / 2.0 * (1 - resizeScale));
       scale(resizeScale);
-      pixelThisFrame(manyFrames[i]);
+      stroke(strokeC, 255 - (i * 255 / input.length));
+      pixelThisFrame(input[i]);
+      popMatrix();
+    }
+  }
+}
+
+// show every frame
+void lightBulbEvery(PImage[] input) {
+  for (int i = 0; i < input.length; i++) {
+    //println(manyFrames[i]);
+    if (input[i] != null) {
+      pushMatrix();
+      float resizeScale = map(i, 0, frameNom, 1, 0.1);
+      translate(width / 2.0 * (1 - resizeScale), height / 2.0 * (1 - resizeScale));
+      scale(resizeScale);
+      pixelThisFrame(input[i]);
       popMatrix();
     }
   }
