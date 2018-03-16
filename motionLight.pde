@@ -98,12 +98,9 @@ void draw() {
     popMatrix();
   }
 
-  //if (playMode == 4) {
-  //  // rabow color motion light bulb
-  //  strokeC = color(random(255.0), random(255.0), random(255.0));
-  //  showRainbowTravel();
-  //}
-  //lights();
+  if (playMode == 4) { // rabow color motion light bulb
+    mode4();
+  }
 
   // debug mode
   if (playMode == 0) {
