@@ -1,4 +1,4 @@
-[![motionLight Demo Video](/demo/motionLight_5.png)](https://www.youtube.com/watch?v=OAWRhbDooVY)
+[![motionLight Demo Video](/demo/motionLight_5.png)](https://www.youtube.com/watch?v=OAWRhbDooVY){:target="_blank"}
 
 # motionLight
 
@@ -24,6 +24,10 @@ It is designed to be an playable installation for public space.
 
 ### CODE
 https://github.com/cy-xu/motionLight
+
+### DEMO
+https://www.youtube.com/watch?v=OAWRhbDooVY
+
 
 ### REFERENCES
 [1]  WHITE CIRCLE 2001 – Jim Campbell
