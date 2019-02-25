@@ -1,4 +1,6 @@
-![motionLight Demo Video](/demo/motionLight_5.png)(https://www.youtube.com/watch?v=OAWRhbDooVY){:target="_blank" :height="50%" width="50%"}
+[]()(){:target="_blank" :height="50%" width="50%"}
+
+<a href="https://www.youtube.com/watch?v=OAWRhbDooVY" target="_blank"><img src="demo/motionLight_5.png" alt="motionLight Demo Video" width=50% height=50%/></a>
 
 # motionLight
 
