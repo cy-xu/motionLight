@@ -30,5 +30,5 @@ https://www.youtube.com/watch?v=OAWRhbDooVY
 
 
 ### REFERENCES
-[1]  WHITE CIRCLE 2001 – Jim Campbell
-[2]  The Coding Train – Daniel Shiffma
+- [1]  WHITE CIRCLE 2001 – Jim Campbell
+- [2]  The Coding Train – Daniel Shiffma
