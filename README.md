@@ -2,7 +2,7 @@
 
 # motionLight
 
-<br><br><br>
+<br>
 
 MotionLight is an live interactive visual audio installation of my personal interest on generating intriguing visual work by manipulating pixels from 2D images. It includes six different interactive modes, reading information from laptop’s camera and microphone, by detecting light difference and motion, it generates various playable effects.
 
