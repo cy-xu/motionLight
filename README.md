@@ -1,4 +1,4 @@
-[![motionLight Demo Video](/demo/motionLight_5.png)](https://www.youtube.com/watch?v=OAWRhbDooVY){:target="_blank"}
+![motionLight Demo Video](/demo/motionLight_5.png)(https://www.youtube.com/watch?v=OAWRhbDooVY){:target="_blank" :height="50%" width="50%"}
 
 # motionLight
 
