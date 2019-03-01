@@ -4,6 +4,9 @@
 
 <br>
 
+### VIDEO DEMO
+http://cyxu.tv/portfolio/motionlight/
+
 MotionLight is an live interactive visual audio installation of my personal interest on generating intriguing visual work by manipulating pixels from 2D images. It includes six different interactive modes, reading information from laptop’s camera and microphone, by detecting light difference and motion, it generates various playable effects.
 
 ### EXPOSITION
@@ -21,13 +24,6 @@ Next I take it further to generate binary image by implementing ‘motion detect
 Once I have reliable binary information of the subject, I wrote a time tunnel that saves previous frames for future manipulation. From this array of image we can generation a series of continuous live-like movements that combines with random color, varying refresh rates and tunnel-like visual effects.
 
 It is designed to be an playable installation for public space.
-
-### CODE
-https://github.com/cy-xu/motionLight
-
-### DEMO
-https://www.youtube.com/watch?v=OAWRhbDooVY
-
 
 ### REFERENCES
 - [1]  WHITE CIRCLE 2001 – Jim Campbell
