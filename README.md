@@ -1,11 +1,9 @@
-<a href="https://www.youtube.com/watch?v=OAWRhbDooVY" target="_blank"><img src="demo/motionLight_5.png" alt="motionLight Demo Video" width=50% height=50%/></a>
 
 # motionLight
 
 <br>
-
 ### VIDEO DEMO
-http://cyxu.tv/portfolio/motionlight/
+<a href="https://www.youtube.com/watch?v=OAWRhbDooVY" target="_blank"><img src="demo/motionLight_5.png" alt="motionLight Demo Video" width=50% height=50%/></a>
 
 MotionLight is an live interactive visual audio installation of my personal interest on generating intriguing visual work by manipulating pixels from 2D images. It includes six different interactive modes, reading information from laptop’s camera and microphone, by detecting light difference and motion, it generates various playable effects.
 
